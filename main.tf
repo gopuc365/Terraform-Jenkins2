@@ -1,11 +1,24 @@
-provider "aws" {
-    region = "us-west-2"  
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.15.0"
+    }
+  }
+
+  
 }
 
-resource "aws_instance" "foo" {
-  ami           = "ami-002829755fa238bfa" # us-west-2
+provider "aws" {
+  region  = "us-west-2"
+  profile = "jack.roper"
+}
+
+resource "aws_instance" "example_server" {
+  ami           = "ami-04e914639d0cca79a"
   instance_type = "t2.micro"
+
   tags = {
-      Name = "TF-Instance"
+    Name = "JacksBlogExample"
   }
 }
