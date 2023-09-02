@@ -46,7 +46,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/ ; terraform apply -input=false "
+                sh "pwd;cd terraform/ ; terraform apply -input=false"
             }
         }
     }
